@@ -77,7 +77,7 @@ const ContactMe = ({ pageInfo }: Props) => {
           />
           <button
             type="submit"
-            className="bg-primary py-3 px-8 md:py-5 md:px-10 rounded-md text-white font-bold text-lg"
+            className="bg-primary py-3 px-8 md:py-5 md:px-10 rounded-md text-secondary font-bold text-lg"
           >
             Submit
           </button>
