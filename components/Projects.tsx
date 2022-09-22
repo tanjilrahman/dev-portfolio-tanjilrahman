@@ -1,10 +1,8 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
 import { use100vh } from "react-div-100vh";
 import Image from "next/image";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 type Props = {
@@ -21,9 +19,6 @@ const Projects = ({ projects }: Props) => {
       <h3 className="absolute top-24 -mr-4 uppercase tracking-[20px] text-gray-500 text-xl md:text-2xl">
         Projects
       </h3>
-      <h3 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-xs md:text-sm">
-        Click to preview the build
-      </h3>
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80">
         {projects.map((project, i) => (
@@ -32,70 +27,88 @@ const Projects = ({ projects }: Props) => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
-              className="w-screen flex-shrink-0 snap-center flex flex-col space-y-3 md:space-y-5 items-center justify-center p-6 md:p-20 lg:p-44 h-screen"
+              className="w-screen text-secondary flex-shrink-0 snap-center flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-center p-6 md:p-20 lg:p-44 h-screen"
             >
-              <motion.div
-                initial={{
-                  y: -90,
-                  opacity: 0,
-                }}
-                transition={{ duration: 1.2 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="relative w-96 h-48 md:w-[600px] md:h-[350px] md:mt-4 cursor-pointer"
-              >
-                <Link href={project.linkToBuild || "/"} passHref>
-                  <a target="_blank" rel="noopener noreferrer">
-                    <Image
-                      src={urlFor(project.image).url()}
-                      alt=""
-                      layout="fill"
-                      objectFit="contain"
-                    />{" "}
-                  </a>
-                </Link>
-              </motion.div>
-              <div className="flex justify-center space-x-2 my-2">
-                {project.technologies.map((technology) => (
-                  <div
-                    key={technology._id}
-                    className="h-8 w-8 md:h-10 md:w-10 relative"
-                  >
-                    <Image
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-full"
-                      src={urlFor(technology.image).url()}
-                      alt=" "
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="space-y-4 md:space-y-8 px-0 md:px-10 max-w-6xl">
-                <h4 className="text-2xl md:text-4xl font-semibold text-center">
-                  <span className="underline decoration-primary/50">
-                    Case Study {i + 1} of {projects.length}:
-                  </span>{" "}
-                  <Link href={project.linkToBuild || "/"} passHref>
-                    <a target="_blank" rel="noopener noreferrer">
-                      <span className="hover:underline cursor-pointer">
-                        {project.title}
-                        <ArrowTopRightOnSquareIcon className="text-white h-6 w-6 md:h-7 md:w-7 animate-pulse inline-block ml-2 mb-1" />
-                      </span>
-                    </a>
-                  </Link>
-                </h4>
+              <h3 className="uppercase absolute top-36 w-full text-center tracking-[3px] text-gray-500 text-xs md:text-sm">
+                Case Study {i + 1} of {projects.length}:
+              </h3>
+              <div className="text-center space-y-3">
+                <motion.div
+                  initial={{
+                    y: -90,
+                    opacity: 0,
+                  }}
+                  transition={{ duration: 1.2 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="relative w-96 h-48 md:w-[750px] md:h-[450px] md:mt-4"
+                >
+                  <Image
+                    src={urlFor(project.image).url()}
+                    alt=""
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </motion.div>
 
-                <p className="text-center text-base md:text-lg">
-                  {project.summary}
-                </p>
+                <div className="inline-block group">
+                  <div className="flex items-center font-bold bg-secondary py-1 px-1 md:py-2 md:px-2 rounded-full mx-auto md:text-lg">
+                    <Link href={project.linkToBuild || "/"} passHref>
+                      <a target="_blank" rel="noopener noreferrer">
+                        <div className="rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer">
+                          Live Demo
+                        </div>
+                      </a>
+                    </Link>
+                    <Link
+                      href={
+                        project.gitHubRepo || "https://github.com/tanjilrahman"
+                      }
+                      passHref
+                    >
+                      <a target="_blank" rel="noopener noreferrer">
+                        <div className="rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer">
+                          GitHub Repo
+                        </div>{" "}
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-2 md:space-y-3 px-0 md:px-16 max-w-6xl">
+                <div className="flex space-x-2 justify-center">
+                  {project.technologies.map((technology) => (
+                    <div
+                      key={technology._id}
+                      className="h-10 w-10 md:h-14 md:w-14 relative"
+                    >
+                      <Image
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-full"
+                        src={urlFor(technology.image).url()}
+                        alt=" "
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-2 md:space-y-4 ">
+                  <h4 className="text-2xl md:text-4xl font-semibold text-center">
+                    {project.title}
+                  </h4>
+
+                  <p className="text-center text-base md:font-medium md:text-xl mx-auto">
+                    {project.summary}
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
         ))}
       </div>
 
-      <div className="w-full absolute top-[30%] bg-primary/10 left-0 h-[500px] -skew-y-12" />
+      <div className="w-full absolute top-[30%] md:top-[22%] bg-primary left-0 h-[470px] md:h-[600px] -skew-y-12" />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -19,21 +20,27 @@ const Hero = ({ pageInfo }: Props) => {
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
-      <div className="relative rounded-full h-32 w-32 mx-auto object-cover">
+      <motion.div
+        initial={{
+          scale: 0.8,
+          opacity: 0,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        className="relative rounded-full h-28 w-28 md:h-32 md:w-32 top-3 md:top-1 mx-auto object-cover"
+      >
         <Image
           className="rounded-full"
-          width="130px"
-          height="130px"
+          objectFit="cover"
+          layout="fill"
           src={urlFor(pageInfo.heroImage).url()}
           alt=" "
         />
-      </div>
+      </motion.div>
 
-      {/* <img
-        className=" relative rounded-full h-32 w-32 mx-auto object-cover "
-        src=" https://cdn.sanity.io/images/ltuexkre/production/a766c574c295f2103c63c2dfdf675557c664d016-600x600.png "
-        alt=" "
-      /> */}
       <div className="z-20">
         <h2 className="text-xs md:text-sm uppercase text-gray-500 pb-3 tracking-[3px] md:tracking-[10px]">
           {pageInfo.role}

@@ -30,6 +30,8 @@ const Header = ({ socials }: Props) => {
         {/* Social Icons */}
         {socials.map((social) => (
           <SocialIcon
+            target="_blank"
+            rel="noopener noreferrer"
             key={social._id}
             url={social.url}
             fgColor="#d6ff41"
