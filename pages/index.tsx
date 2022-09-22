@@ -33,11 +33,11 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
 
       <Header socials={socials} />
 
-      <section id="hero" className="snap-start">
+      <section id="hero" className=" snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
 
-      <section id="about" className="snap-center">
+      <section id="about" className=" snap-center">
         <About pageInfo={pageInfo} />
       </section>
 
@@ -62,7 +62,7 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
           <Link href="#hero">
             <div className="h-8 w-8 relative">
               <Image
-                className="filter grayscale hover:grayscale-0 cursor-pointer"
+                className="filter grayscale-0 hover:grayscale cursor-pointer"
                 src="/TR.png"
                 layout="fill"
                 objectFit="cover"

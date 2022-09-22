@@ -20,29 +20,44 @@ const About = ({ pageInfo }: Props) => {
         About
       </h3>
 
-      <motion.div
-        initial={{
-          x: -200,
-          opacity: 0,
-        }}
-        transition={{
-          duration: 1.2,
-        }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        className="-mb-32 md:mb-0 flex-shrink-0 w-48 h-48 md:w-64 md:h-96 xl:w-[400px] xl:h-[500px] relative"
-      >
-        <Image
-          src={urlFor(pageInfo.profilePic).url()}
-          layout="fill"
-          objectFit="cover"
-          alt=""
-          className="rounded-full md:rounded-lg"
+      <div className="relative md:ml-10">
+        <motion.div
+          initial={{
+            x: -200,
+            opacity: 0,
+          }}
+          transition={{
+            duration: 1.2,
+          }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="-mb-32 md:mb-0 flex-shrink-0 w-44 h-44 md:w-64 md:h-96 xl:w-[400px] xl:h-[500px] relative z-20"
+        >
+          <Image
+            src={urlFor(pageInfo.profilePic).url()}
+            layout="fill"
+            objectFit="cover"
+            alt=" "
+            className="rounded-full md:rounded-none"
+          />
+        </motion.div>
+        <motion.div
+          initial={{
+            scale: 0.5,
+            opacity: 0,
+          }}
+          transition={{
+            delay: 0.8,
+            duration: 1.2,
+          }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="absolute -top-2 -left-2 rounded-full md:rounded-none md:top-10 md:-left-10 z-10 w-48 h-48 md:w-64 md:h-96 xl:w-[400px] xl:h-[500px] bg-primary"
         />
-      </motion.div>
+      </div>
 
-      <div className="space-y-5 md:space-y-10 px-0 md:px-16">
-        <h4 className="text-2xl md:text-4xl font-semibold">
+      <div className="space-y-5 md:space-y-10 pl-0 md:pl-20">
+        <h4 className="text-2xl md:text-7xl font-extrabold uppercase">
           Here is a{" "}
           <span className="underline decoration-primary/50">little</span>{" "}
           background

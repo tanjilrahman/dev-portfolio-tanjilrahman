@@ -5,11 +5,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ["Raleway", "Helvetica", "Arial", "sans-serif"],
+    },
     extend: {
       colors: {
-        primary: "#f7e060",
-        secondary: "#161817",
-        tertiary: "#272725",
+        primary: "#d6ff41",
+        secondary: "#171717",
+        tertiary: "#292929",
       },
     },
   },
