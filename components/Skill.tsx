@@ -17,7 +17,7 @@ const Skill = ({ directionLeft, skill }: Props) => {
           y: directionLeft ? -90 : 90,
           opacity: 1,
         }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.5 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="rounded-full border border-primary/50 w-[72px] h-[72px] md:w-28 md:h-28 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out relative"

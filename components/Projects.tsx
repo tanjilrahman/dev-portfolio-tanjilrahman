@@ -4,6 +4,7 @@ import { urlFor } from "../sanity";
 import { use100vh } from "react-div-100vh";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 
 type Props = {
   projects: Project[];
@@ -20,17 +21,18 @@ const Projects = ({ projects }: Props) => {
         Projects
       </h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin md:scrollbar-none scrollbar-track-gray-400/20 scrollbar-thumb-primary/80">
         {projects.map((project, i) => (
-          <div key={project._id}>
+          <div key={project._id} id={`CaseStudy${(i + 1).toString()}`}>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
+              viewport={{ once: false }}
               className="w-screen text-secondary flex-shrink-0 snap-center flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-center p-6 md:p-20 lg:p-44 h-screen"
             >
-              <h3 className="uppercase absolute top-36 w-full text-center tracking-[3px] text-gray-500 text-xs md:text-sm">
-                Case Study {i + 1} of {projects.length}:
+              <h3 className="xl:hidden uppercase absolute top-36 w-full text-center tracking-[3px] text-gray-500 text-xs md:text-sm">
+                Case Study {i + 1} of {projects.length}
               </h3>
               <div className="text-center space-y-3">
                 <motion.div
@@ -40,8 +42,8 @@ const Projects = ({ projects }: Props) => {
                   }}
                   transition={{ duration: 1.2 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="relative w-96 h-48 md:w-[750px] md:h-[450px] md:mt-4"
+                  viewport={{ once: false }}
+                  className="relative w-96 h-48 md:w-[400px] md:h-[250px] lg:w-[500px] lg:h-[300px] xl:w-[750px] xl:h-[450px] md:mt-4"
                 >
                   <Image
                     src={urlFor(project.image).url()}
@@ -51,32 +53,61 @@ const Projects = ({ projects }: Props) => {
                   />
                 </motion.div>
 
-                <div className="inline-block group">
-                  <div className="flex items-center font-bold bg-secondary py-1 px-1 md:py-2 md:px-2 rounded-full mx-auto md:text-lg">
-                    <Link href={project.linkToBuild || "/"} passHref>
-                      <a target="_blank" rel="noopener noreferrer">
-                        <div className="rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer">
-                          Live Demo
+                <div className="space-x-4 items-center flex justify-center">
+                  <div className="inline-block group">
+                    <div className="flex items-center font-bold bg-secondary py-1 px-1 md:py-2 md:px-2 rounded-full mx-auto md:text-lg">
+                      <Link href={project.linkToBuild || "/"} passHref>
+                        <a target="_blank" rel="noopener noreferrer">
+                          <div className="rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer">
+                            Live Demo
+                          </div>
+                        </a>
+                      </Link>
+                      <Link
+                        href={
+                          project.gitHubRepo ||
+                          "https://github.com/tanjilrahman"
+                        }
+                        passHref
+                      >
+                        <a target="_blank" rel="noopener noreferrer">
+                          <div className="rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer">
+                            GitHub Repo
+                          </div>{" "}
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="hidden md:inline-block group">
+                    <div className="flex items-center font-bold bg-secondary py-1 px-1 md:py-2 md:px-2 rounded-full mx-auto md:text-lg">
+                      <Link href={`#CaseStudy${i + 2}`}>
+                        <div
+                          className={`${
+                            projects.length == i + 1
+                              ? "hidden"
+                              : "flex items-center rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer"
+                          }`}
+                        >
+                          Next <ArrowRightIcon className="w-6 h-6 ml-2" />
                         </div>
-                      </a>
-                    </Link>
-                    <Link
-                      href={
-                        project.gitHubRepo || "https://github.com/tanjilrahman"
-                      }
-                      passHref
-                    >
-                      <a target="_blank" rel="noopener noreferrer">
-                        <div className="rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer">
-                          GitHub Repo
-                        </div>{" "}
-                      </a>
-                    </Link>
+                      </Link>
+                      <Link href={`#CaseStudy${i}`}>
+                        <div
+                          className={`${
+                            i == 0
+                              ? "hidden"
+                              : "flex items-center rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer"
+                          }`}
+                        >
+                          <ArrowLeftIcon className="w-6 h-6 mr-2" /> Previous
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-2 md:space-y-3 px-0 md:px-16 max-w-6xl">
+              <div className="space-y-3 md:space-y-4 px-0 md:px-4 xl:px-24 max-w-6xl">
                 <div className="flex space-x-2 justify-center">
                   {project.technologies.map((technology) => (
                     <div
@@ -95,6 +126,9 @@ const Projects = ({ projects }: Props) => {
                 </div>
                 <div className="space-y-2 md:space-y-4 ">
                   <h4 className="text-2xl md:text-4xl font-semibold text-center">
+                    <span className="hidden xl:inline-block underline decoration-secondary/30">
+                      Case Study {i + 1} of {projects.length}:
+                    </span>{" "}
                     {project.title}
                   </h4>
 
@@ -108,7 +142,13 @@ const Projects = ({ projects }: Props) => {
         ))}
       </div>
 
-      <div className="w-full absolute top-[30%] md:top-[22%] bg-primary left-0 h-[470px] md:h-[600px] -skew-y-12" />
+      <motion.div
+        initial={{ y: 300, skewY: -12 }}
+        whileInView={{ y: 0, skewY: -12 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="w-full absolute top-[30%] md:top-[22%] bg-primary left-0 h-[470px] md:h-[600px] -skew-y-12"
+      />
     </div>
   );
 };
