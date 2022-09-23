@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Skill } from "../typings";
 import { urlFor } from "../sanity";
 import Image from "next/image";
+import { isMobile } from "react-device-detect";
 
 type Props = {
   directionLeft?: boolean;
@@ -14,11 +15,11 @@ const Skill = ({ directionLeft, skill }: Props) => {
     <div className="group relative flex cursor-pointer">
       <motion.div
         initial={{
-          y: directionLeft ? -90 : 90,
+          x: directionLeft ? (isMobile ? -80 : -200) : isMobile ? 80 : 200,
           opacity: 1,
         }}
         transition={{ duration: 0.5 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         className="rounded-full border border-primary/50 w-[72px] h-[72px] md:w-28 md:h-28 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out relative"
       >
