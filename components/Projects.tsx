@@ -22,7 +22,7 @@ const Projects = ({ projects }: Props) => {
         Projects
       </h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin md:scrollbar-none scrollbar-track-gray-400/20 scrollbar-thumb-primary/80">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin md:scrollbar-none scrollbar-track-gray-400/20 scrollbar-thumb-secondary/80">
         {projects.map((project, i) => (
           <div key={project._id} id={`CaseStudy${(i + 1).toString()}`}>
             <div className="w-screen text-secondary flex-shrink-0 snap-center flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-center p-6 md:p-20 lg:p-44 h-screen">
@@ -169,7 +169,7 @@ const Projects = ({ projects }: Props) => {
         whileInView={{ y: 0, skewY: -12 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="w-full absolute top-[30%] md:top-[22%] bg-primary left-0 h-[470px] md:h-[600px] -skew-y-12"
+        className="w-full absolute top-[30%] md:top-[22%] bg-primary left-0 h-[700px] md:h-[600px] -skew-y-12"
       />
     </div>
   );

@@ -10,7 +10,7 @@ type Props = {
 
 const ExperienceCard = ({ experience }: Props) => {
   return (
-    <article className="flex flex-col items-center space-y-4 md:space-y-7 flex-shrink-0 md:flex-1 w-screen md:w-[600px] xl:w-[900px] snap-center text-secondary bg-primary py-8 px-6 md:px-16 md:py-14 hover:opacity-100 transition-opacity duration-200 overflow-hidden">
+    <article className="flex flex-col items-center space-y-4 md:space-y-7 flex-shrink-0 md:flex-1 w-screen md:w-[600px] xl:w-[900px] snap-center text-secondary bg-primary py-6 px-6 md:p-16 md:py-14 hover:opacity-100 transition-opacity duration-200 overflow-hidden">
       <motion.div
         initial={{
           y: -100,
@@ -31,8 +31,8 @@ const ExperienceCard = ({ experience }: Props) => {
       </motion.div>
 
       <div>
-        <div className="space-y-2">
-          <div className="space-y-2">
+        <div className="space-y-1 md:space-y-2">
+          <div className="space-y-1 md:space-y-2">
             <h4 className="text-2xl md:text-4xl font-light">
               {experience.jobTitle}
             </h4>
@@ -42,11 +42,11 @@ const ExperienceCard = ({ experience }: Props) => {
           </div>
 
           <div className="inline-block">
-            <div className="flex space-x-2 my-2 bg-secondary py-2 md:py-3 px-4 rounded-full">
+            <div className="flex space-x-1 md:space-x-2 my-2 bg-secondary py-1 px-3 md:py-3 md:px-4 rounded-full">
               {experience.technologies.map((technology) => (
                 <div
                   key={technology._id}
-                  className="h-8 w-8 md:h-10 md:w-10 relative text-opacity-5"
+                  className="h-7 w-7 md:h-10 md:w-10 relative text-opacity-5"
                 >
                   <Image
                     layout="fill"
@@ -61,7 +61,7 @@ const ExperienceCard = ({ experience }: Props) => {
           </div>
         </div>
 
-        <p className="uppercase py-5 text-secondary text-sm md:text-base">
+        <p className="uppercase py-2 md:py-5 text-secondary text-sm md:text-base">
           {new Date(experience.dateStarted).toDateString()} -{" "}
           {experience.isCurrentlyWorkingHere
             ? "Present"

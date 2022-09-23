@@ -75,12 +75,12 @@ const ContactMe = ({ pageInfo }: Props) => {
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-7 md:space-y-10 ">
+      <div className="flex flex-col space-y-6 md:space-y-10 ">
         <h4 className="text-2xl md:text-4xl font-semibold text-center px-4">
           I have got just what you need.{" "}
           <span className="decoration-primary/50 underline">Lets Talk.</span>
         </h4>
-        <div className="space-y-4 md:space-y-10">
+        <div className="space-y-3 md:space-y-10">
           <div className="flex items-center space-x-5 justify-center">
             <PhoneIcon className="text-primary h-7 w-7 animate-pulse" />
             <p className="text-lg md:text-2xl">{pageInfo.phoneNumber}</p>
