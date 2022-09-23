@@ -15,6 +15,8 @@ import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type Props = {
   pageInfo: PageInfo;
@@ -72,6 +74,7 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
           </Link>
         </div>
       </footer>
+      <ToastContainer />
     </div>
   );
 };

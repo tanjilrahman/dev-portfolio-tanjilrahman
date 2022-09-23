@@ -5,6 +5,7 @@ import { use100vh } from "react-div-100vh";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
+import { toast } from "react-toastify";
 
 type Props = {
   projects: Project[];
@@ -24,13 +25,7 @@ const Projects = ({ projects }: Props) => {
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin md:scrollbar-none scrollbar-track-gray-400/20 scrollbar-thumb-primary/80">
         {projects.map((project, i) => (
           <div key={project._id} id={`CaseStudy${(i + 1).toString()}`}>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.5 }}
-              viewport={{ once: false }}
-              className="w-screen text-secondary flex-shrink-0 snap-center flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-center p-6 md:p-20 lg:p-44 h-screen"
-            >
+            <div className="w-screen text-secondary flex-shrink-0 snap-center flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-center p-6 md:p-20 lg:p-44 h-screen">
               <h3 className="xl:hidden uppercase absolute top-36 w-full text-center tracking-[3px] text-gray-500 text-xs md:text-sm">
                 Case Study {i + 1} of {projects.length}
               </h3>
@@ -58,24 +53,45 @@ const Projects = ({ projects }: Props) => {
                     <div className="flex items-center font-bold bg-secondary py-1 px-1 md:py-2 md:px-2 rounded-full mx-auto md:text-lg">
                       <Link href={project.linkToBuild || "/"} passHref>
                         <a target="_blank" rel="noopener noreferrer">
-                          <div className="rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer">
+                          <div className="rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer select-none">
                             Live Demo
                           </div>
                         </a>
                       </Link>
-                      <Link
-                        href={
-                          project.gitHubRepo ||
-                          "https://github.com/tanjilrahman"
-                        }
-                        passHref
-                      >
-                        <a target="_blank" rel="noopener noreferrer">
-                          <div className="rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer">
-                            GitHub Repo
-                          </div>{" "}
-                        </a>
-                      </Link>
+                      {project.gitHubRepo ? (
+                        <Link
+                          href={
+                            project.gitHubRepo ||
+                            "https://github.com/tanjilrahman"
+                          }
+                          passHref
+                        >
+                          <a target="_blank" rel="noopener noreferrer">
+                            <div className="rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer select-none">
+                              GitHub Repo
+                            </div>
+                          </a>
+                        </Link>
+                      ) : (
+                        <div
+                          onClick={() => {
+                            toast.info("Repository is set to private.", {
+                              position: "top-center",
+                              autoClose: 4000,
+                              hideProgressBar: true,
+                              theme: "colored",
+                              style: {
+                                backgroundColor: "#d6ff41",
+                                color: "#171717",
+                              },
+                              progress: undefined,
+                            });
+                          }}
+                          className="rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer select-none"
+                        >
+                          GitHub Repo
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="hidden md:inline-block group">
@@ -85,7 +101,7 @@ const Projects = ({ projects }: Props) => {
                           className={`${
                             projects.length == i + 1
                               ? "hidden"
-                              : "flex items-center rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer"
+                              : "flex items-center rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer select-none"
                           }`}
                         >
                           Next <ArrowRightIcon className="w-6 h-6 ml-2" />
@@ -96,7 +112,7 @@ const Projects = ({ projects }: Props) => {
                           className={`${
                             i == 0
                               ? "hidden"
-                              : "flex items-center rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer"
+                              : "flex items-center rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer select-none"
                           }`}
                         >
                           <ArrowLeftIcon className="w-6 h-6 mr-2" /> Previous
@@ -107,7 +123,13 @@ const Projects = ({ projects }: Props) => {
                 </div>
               </div>
 
-              <div className="space-y-3 md:space-y-4 px-0 md:px-4 xl:px-24 max-w-6xl">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                viewport={{ once: false }}
+                className="space-y-3 md:space-y-4 px-0 md:px-4 xl:px-24 max-w-6xl"
+              >
                 <div className="flex space-x-2 justify-center">
                   {project.technologies.map((technology) => (
                     <div
@@ -136,8 +158,8 @@ const Projects = ({ projects }: Props) => {
                     {project.summary}
                   </p>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         ))}
       </div>
