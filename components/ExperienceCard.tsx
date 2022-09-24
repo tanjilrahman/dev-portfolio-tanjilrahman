@@ -10,7 +10,7 @@ type Props = {
 
 const ExperienceCard = ({ experience }: Props) => {
   return (
-    <article className="flex flex-col items-center space-y-4 md:space-y-7 flex-shrink-0 md:flex-1 w-screen md:w-[600px] xl:w-[900px] snap-center text-secondary bg-primary py-6 px-6 md:p-16 md:py-14 hover:opacity-100 transition-opacity duration-200 overflow-hidden">
+    <article className="flex flex-col items-center space-y-3 md:space-y-7 flex-shrink-0 md:flex-1 w-screen md:w-[600px] xl:w-[900px] snap-center text-secondary bg-primary py-6 px-6 md:p-16 md:py-14 hover:opacity-100 transition-opacity duration-200 overflow-hidden">
       <motion.div
         initial={{
           y: -100,
@@ -31,12 +31,12 @@ const ExperienceCard = ({ experience }: Props) => {
       </motion.div>
 
       <div>
-        <div className="space-y-1 md:space-y-2">
-          <div className="space-y-1 md:space-y-2">
-            <h4 className="text-2xl md:text-4xl font-light">
+        <div className="md:space-y-2">
+          <div className=" md:space-y-2">
+            <h4 className="text-lg md:text-4xl md:font-light">
               {experience.jobTitle}
             </h4>
-            <p className="font-bold text-xl md:text-2xl mt-1">
+            <p className="font-bold text-lg md:text-2xl">
               {experience.company}
             </p>
           </div>
@@ -61,14 +61,14 @@ const ExperienceCard = ({ experience }: Props) => {
           </div>
         </div>
 
-        <p className="uppercase py-2 md:py-5 text-secondary text-sm md:text-base">
+        <p className="uppercase py-2 md:py-4 text-secondary text-xs md:text-base">
           {new Date(experience.dateStarted).toDateString()} -{" "}
           {experience.isCurrentlyWorkingHere
             ? "Present"
             : new Date(experience.dateEnded).toDateString()}
         </p>
 
-        <ul className="list-disc space-y-2 md:space-y-4 ml-5 text-base md:text-lg">
+        <ul className="list-disc space-y-2 md:space-y-3 ml-5 text-sm md:text-lg">
           {experience.points.map((point, i) => (
             <li key={i}>{point}</li>
           ))}

@@ -102,13 +102,11 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
         <div className="relative">
           <div className="flex items-center justify-center">
             <Link href="#hero">
-              <div className="h-8 w-8 relative">
+              <div className="h-7 w-7 md:h-8 md:w-8 relative">
                 <svg
                   className={`${
-                    inView
-                      ? "fill-secondary md:fill-primary"
-                      : "fill-primary cursor-crosshair"
-                  } hover:fill-white transition-all duration-200 `}
+                    inView ? "fill-secondary md:fill-primary" : "fill-primary "
+                  } md:hover:fill-white transition-all duration-200 cursor-crosshair`}
                   version="1.2"
                   baseProfile="tiny"
                   id="Layer_1"
@@ -131,16 +129,16 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
               !inView && "invisible opacity-0"
             } transition-all duration-200 md:hidden`}
           >
-            <div className="absolute -top-2 -left-10 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto">
+            <div className="absolute -top-2 -left-12 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto">
               <Link href={`#CaseStudy${previous()}`}>
-                <div className="flex items-center rounded-full py-2 px-4 pl-16 bg-secondary text-primary hover:text-secondary hover:bg-primary transition-all duration-200 ease-in-out cursor-pointer select-none">
+                <div className="flex items-center rounded-full py-1 px-2 pl-16 bg-secondary text-primary hover:text-secondary hover:bg-primary transition-all duration-200 ease-in-out cursor-pointer select-none">
                   <ArrowLeftIcon className="w-6 h-6 mr-2" />
                 </div>
               </Link>
             </div>
-            <div className="absolute -top-2 -right-10 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto">
+            <div className="absolute -top-2 -right-12 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto">
               <Link href={`#CaseStudy${next()}`}>
-                <div className="flex items-center rounded-full py-2 px-4 pr-16 bg-secondary text-primary hover:text-secondary hover:bg-primary transition-all duration-200 ease-in-out cursor-pointer select-none">
+                <div className="flex items-center rounded-full py-1 px-2 pr-16 bg-secondary text-primary hover:text-secondary hover:bg-primary transition-all duration-200 ease-in-out cursor-pointer select-none">
                   <ArrowRightIcon className="w-6 h-6 ml-2" />
                 </div>
               </Link>
