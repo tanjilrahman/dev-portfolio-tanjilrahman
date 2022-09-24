@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
-import { use100vh } from "react-div-100vh";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
@@ -12,17 +11,13 @@ type Props = {
 };
 
 const Projects = ({ projects }: Props) => {
-  const height = use100vh();
   return (
-    <div
-      style={{ height: height || "100vh" }}
-      className="relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
-    >
+    <div className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0">
       <h3 className="absolute top-24 -mr-4 uppercase tracking-[20px] text-gray-500 text-xl md:text-2xl">
         Projects
       </h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin md:scrollbar-none scrollbar-track-gray-400/20 scrollbar-thumb-secondary/80">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-none scrollbar-track-gray-400/20 scrollbar-thumb-secondary/80">
         {projects.map((project, i) => (
           <div key={project._id} id={`CaseStudy${(i + 1).toString()}`}>
             <div className="w-screen text-secondary flex-shrink-0 snap-center flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-center p-6 md:p-20 lg:p-44 h-screen">
