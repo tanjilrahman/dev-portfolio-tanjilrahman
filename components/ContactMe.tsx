@@ -3,6 +3,7 @@ import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { PageInfo } from "../typings";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 type Inputs = {
   name: string;
@@ -70,7 +71,12 @@ const ContactMe = ({ pageInfo }: Props) => {
       );
   };
   return (
-    <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl justify-evenly mx-auto items-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+      className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl justify-evenly mx-auto items-center"
+    >
       <h3 className="absolute top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-2xl">
         Contact
       </h3>
@@ -144,7 +150,7 @@ const ContactMe = ({ pageInfo }: Props) => {
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

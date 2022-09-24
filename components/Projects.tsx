@@ -45,7 +45,7 @@ const Projects = ({ projects }: Props) => {
 
                 <div className="space-x-4 items-center flex justify-center">
                   <div className="inline-block group">
-                    <div className="flex items-center font-bold bg-secondary py-1 px-1 md:py-2 md:px-2 rounded-full mx-auto text-sm md:text-lg">
+                    <div className="flex items-center font-bold bg-secondary py-1 px-1 md:py-2 md:px-2 rounded-full mx-auto text-sm md:text-lg select-none">
                       <Link href={project.linkToBuild || "/"} passHref>
                         <a target="_blank" rel="noopener noreferrer">
                           <div className="rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer select-none">
@@ -164,7 +164,7 @@ const Projects = ({ projects }: Props) => {
         whileInView={{ y: 0, skewY: -12 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="w-full absolute top-[30%] md:top-[22%] bg-primary left-0 h-[700px] md:h-[600px] -skew-y-12"
+        className="w-full absolute top-[33%] md:top-[22%] bg-primary left-0 h-[700px] md:h-[600px]"
       />
     </div>
   );

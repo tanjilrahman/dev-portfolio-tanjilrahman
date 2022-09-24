@@ -36,7 +36,7 @@ const ExperienceCard = ({ experience }: Props) => {
             <h4 className="text-lg md:text-4xl md:font-light">
               {experience.jobTitle}
             </h4>
-            <p className="font-bold text-lg md:text-2xl">
+            <p className="font-extrabold text-lg md:text-2xl">
               {experience.company}
             </p>
           </div>
