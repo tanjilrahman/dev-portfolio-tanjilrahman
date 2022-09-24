@@ -14,7 +14,7 @@ const About = ({ pageInfo }: Props) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-7xl px-4 md:px-10 justify-evenly mx-auto items-center"
+      className="h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-7xl px-6 md:px-10 justify-evenly mx-auto items-center"
     >
       <h3 className="absolute top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-2xl">
         About
@@ -57,8 +57,8 @@ const About = ({ pageInfo }: Props) => {
           />
         </div>
 
-        <div className="space-y-4 md:space-y-10 pl-0 md:pl-20">
-          <h4 className="text-xl md:text-7xl font-extrabold uppercase">
+        <div className="space-y-2 md:space-y-10 pl-0 md:pl-20">
+          <h4 className="text-2xl md:text-7xl font-extrabold uppercase">
             Here is a{" "}
             <span className="underline decoration-primary/50">little</span>{" "}
             background

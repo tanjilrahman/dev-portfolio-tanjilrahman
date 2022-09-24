@@ -4,7 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap");
 @layer components {
   .heroButton {
-    @apply m-1 md:m-2 px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-primary/40 hover:text-primary/40;
+    @apply m-1 md:m-2 px-4 md:px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-primary/40 hover:text-primary/40;
   }
   .contactInput {
     @apply outline-none bg-slate-400/10 rounded-sm border-b px-4 py-3 md:px-6 md:py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-primary/40 focus:text-primary/40;
