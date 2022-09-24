@@ -127,7 +127,7 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
           <div className="md:hidden">
             <div
               className={`${
-                !inView && "invisible opacity-0 -translate-x-4"
+                !inView && "invisible opacity-0 -translate-x-10"
               } translate-x-0 absolute -top-2 -left-12 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto transition-all duration-300 `}
             >
               <Link href={`#CaseStudy${previous()}`}>
@@ -138,7 +138,7 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
             </div>
             <div
               className={`${
-                !inView && "invisible opacity-0 translate-x-4"
+                !inView && "invisible opacity-0 translate-x-10"
               } translate-x-0 absolute -top-2 -right-12 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto transition-all duration-300 `}
             >
               <Link href={`#CaseStudy${next()}`}>
