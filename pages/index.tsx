@@ -124,23 +124,19 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
               </div>
             </Link>
           </div>
-          <div className="md:hidden">
-            <div
-              className={`${
-                !inView && "invisible opacity-0 -translate-x-10"
-              } translate-x-0 absolute -top-2 -left-12 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto transition-all duration-300 `}
-            >
+          <div
+            className={`${
+              !inView && "invisible opacity-0"
+            } transition-all duration-200 md:hidden`}
+          >
+            <div className="absolute -top-2 -left-12 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto">
               <Link href={`#CaseStudy${previous()}`}>
                 <div className="flex items-center rounded-full py-1 px-2 pl-16 bg-secondary text-primary hover:text-secondary hover:bg-primary transition-all duration-200 ease-in-out cursor-pointer select-none">
                   <ArrowLeftIcon className="w-6 h-6 mr-2" />
                 </div>
               </Link>
             </div>
-            <div
-              className={`${
-                !inView && "invisible opacity-0 translate-x-10"
-              } translate-x-0 absolute -top-2 -right-12 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto transition-all duration-300 `}
-            >
+            <div className="absolute -top-2 -right-12 flex items-center font-bold bg-secondary py-1 px-1 rounded-full mx-auto">
               <Link href={`#CaseStudy${next()}`}>
                 <div className="flex items-center rounded-full py-1 px-2 pr-16 bg-secondary text-primary hover:text-secondary hover:bg-primary transition-all duration-200 ease-in-out cursor-pointer select-none">
                   <ArrowRightIcon className="w-6 h-6 ml-2" />
