@@ -2,6 +2,13 @@ export default {
   name: "experience",
   title: "Experience",
   type: "document",
+  orderings: [
+    {
+      title: "Manual order",
+      name: "manualOrder",
+      by: [{ field: "order", direction: "asc" }],
+    },
+  ],
   fields: [
     {
       name: "jobTitle",
@@ -47,6 +54,12 @@ export default {
       title: "Points",
       type: "array",
       of: [{ type: "string" }],
+    },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
     },
   ],
 };

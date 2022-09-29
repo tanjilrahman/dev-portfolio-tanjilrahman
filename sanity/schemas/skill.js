@@ -2,6 +2,13 @@ export default {
   name: "skill",
   title: "Skill",
   type: "document",
+  orderings: [
+    {
+      title: "Manual order",
+      name: "manualOrder",
+      by: [{ field: "order", direction: "asc" }],
+    },
+  ],
   fields: [
     {
       name: "title",
@@ -23,6 +30,12 @@ export default {
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
     },
   ],
 };

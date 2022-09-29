@@ -2,6 +2,13 @@ export default {
   name: "project",
   title: "Project",
   type: "document",
+  orderings: [
+    {
+      title: "Manual order",
+      name: "manualOrder",
+      by: [{ field: "order", direction: "asc" }],
+    },
+  ],
   fields: [
     {
       name: "title",
@@ -37,6 +44,12 @@ export default {
       name: "gitHubRepo",
       title: "GitHubRepo",
       type: "url",
+    },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
     },
   ],
 };

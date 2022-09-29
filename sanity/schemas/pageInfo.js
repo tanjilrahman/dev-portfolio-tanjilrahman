@@ -2,6 +2,13 @@ export default {
   name: "pageInfo",
   title: "PageInfo",
   type: "document",
+  orderings: [
+    {
+      title: "Manual order",
+      name: "manualOrder",
+      by: [{ field: "order", direction: "asc" }],
+    },
+  ],
   fields: [
     {
       name: "name",
@@ -69,6 +76,12 @@ export default {
       title: "Socials",
       type: "array",
       of: [{ type: "reference", to: { type: "social" } }],
+    },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
     },
   ],
 };
