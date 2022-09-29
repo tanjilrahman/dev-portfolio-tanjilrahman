@@ -26,6 +26,7 @@ export interface PageInfo extends SanityBody {
   name: string;
   phoneNumber: string;
   profilePic: Image;
+  order: string;
 }
 
 export interface Technology extends SanityBody {
@@ -40,6 +41,7 @@ export interface Skill extends SanityBody {
   image: Image;
   progress: number;
   title: string;
+  order: string;
 }
 
 export interface Experience extends SanityBody {
@@ -52,6 +54,7 @@ export interface Experience extends SanityBody {
   jobTitle: string;
   points: string[];
   technologies: Technology[];
+  order: string;
 }
 
 export interface Project extends SanityBody {
@@ -62,10 +65,12 @@ export interface Project extends SanityBody {
   linkToBuild: string;
   gitHubRepo: string;
   technologies: Technology[];
+  order: string;
 }
 
 export interface Social extends SanityBody {
   _type: "social";
   title: string;
   url: string;
+  order: string;
 }
