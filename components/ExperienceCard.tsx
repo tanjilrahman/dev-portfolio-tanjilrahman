@@ -11,7 +11,7 @@ type Props = {
 
 const ExperienceCard = ({ experience }: Props) => {
   return (
-    <article className="flex flex-col items-center space-y-3 md:space-y-7 flex-shrink-0 md:flex-1 w-screen md:w-[600px] xl:w-[900px] snap-center text-secondary bg-primary py-6 px-6 md:p-16 md:py-14 hover:opacity-100 transition-opacity duration-200 overflow-hidden">
+    <article className="flex flex-col items-center space-y-3 md:space-y-7 flex-shrink-0 md:flex-1 w-screen md:w-[600px] xl:w-[900px] snap-center text-secondary bg-primary py-6 px-6 md:p-12 md:py-10 hover:opacity-100 transition-opacity duration-200 overflow-hidden">
       {!experience.isCertificate && (
         <motion.div
           initial={{
