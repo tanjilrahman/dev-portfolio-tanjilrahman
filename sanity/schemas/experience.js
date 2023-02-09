@@ -44,6 +44,16 @@ export default {
       type: "boolean",
     },
     {
+      name: "isCertificate",
+      title: "IsCertificate",
+      type: "boolean",
+    },
+    {
+      name: "certificateLink",
+      title: "Certificate Link",
+      type: "string",
+    },
+    {
       name: "technologies",
       title: "Technologies",
       type: "array",
