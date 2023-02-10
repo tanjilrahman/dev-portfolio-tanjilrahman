@@ -8,7 +8,15 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import WorkExperience from "../components/WorkExperience";
-import { Experience, PageInfo, Project, Skill, Social } from "../typings";
+import Certificates from "../components/Certificates";
+import {
+  Certificate,
+  Experience,
+  PageInfo,
+  Project,
+  Skill,
+  Social,
+} from "../typings";
 import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchProjects } from "../utils/fetchProjects";
@@ -20,16 +28,25 @@ import { useInView } from "react-intersection-observer";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { fetchCertificates } from "../utils/fetchCertificates";
 
 type Props = {
   pageInfo: PageInfo;
+  certificates: Certificate[];
   experiences: Experience[];
   skills: Skill[];
   projects: Project[];
   socials: Social[];
 };
 
-const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
+const Home = ({
+  pageInfo,
+  certificates,
+  experiences,
+  skills,
+  projects,
+  socials,
+}: Props) => {
   const route = useRouter();
   const { ref, inView } = useInView({
     /* Optional options */
@@ -80,6 +97,10 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
 
       <section id="about" className=" snap-center">
         <About pageInfo={pageInfo} />
+      </section>
+
+      <section id="certificate" className="snap-center">
+        <Certificates certificates={certificates} />
       </section>
 
       <section id="experience" className="snap-center">
@@ -156,6 +177,7 @@ export default Home;
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const experiences: Experience[] = await fetchExperiences();
+  const certificates: Certificate[] = await fetchCertificates();
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();
@@ -163,6 +185,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       pageInfo,
+      certificates,
       experiences,
       skills,
       projects,

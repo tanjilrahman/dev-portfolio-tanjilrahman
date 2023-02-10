@@ -32,6 +32,7 @@ const Header = ({ socials }: Props) => {
           <SocialIcon
             target="_blank"
             rel="noopener noreferrer"
+            network={social.title}
             key={social._id}
             url={social.url}
             fgColor="#d6ff41"

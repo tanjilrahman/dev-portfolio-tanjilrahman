@@ -44,6 +44,18 @@ export interface Skill extends SanityBody {
   order: string;
 }
 
+export interface Certificate extends SanityBody {
+  _type: "certificate";
+  title: string;
+  organization: string;
+  certificateImage: Image;
+  issueDate: date;
+  credentialURL: string;
+  description: string;
+  technologies: Technology[];
+  order: string;
+}
+
 export interface Experience extends SanityBody {
   _type: "experience";
   company: string;
@@ -51,8 +63,6 @@ export interface Experience extends SanityBody {
   dateStarted: date;
   dateEnded: date;
   isCurrentlyWorkingHere: boolean;
-  isCertificate: boolean;
-  certificateLink: string;
   jobTitle: string;
   points: string[];
   technologies: Technology[];
