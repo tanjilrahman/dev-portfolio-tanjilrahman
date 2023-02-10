@@ -32,7 +32,7 @@ import { fetchCertificates } from "../utils/fetchCertificates";
 
 type Props = {
   pageInfo: PageInfo;
-  // certificates: Certificate[];
+  certificates: Certificate[];
   experiences: Experience[];
   skills: Skill[];
   projects: Project[];
@@ -41,7 +41,7 @@ type Props = {
 
 const Home = ({
   pageInfo,
-  // certificates,
+  certificates,
   experiences,
   skills,
   projects,
@@ -99,9 +99,9 @@ const Home = ({
         <About pageInfo={pageInfo} />
       </section>
 
-      {/* <section id="certificate" className="snap-center">
+      <section id="certificate" className="snap-center">
         <Certificates certificates={certificates} />
-      </section> */}
+      </section>
 
       <section id="experience" className="snap-center">
         <WorkExperience experiences={experiences} />
@@ -177,7 +177,7 @@ export default Home;
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const experiences: Experience[] = await fetchExperiences();
-  // const certificates: Certificate[] = await fetchCertificates();
+  const certificates: Certificate[] = await fetchCertificates();
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();
@@ -185,7 +185,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       pageInfo,
-      // certificates,
+      certificates,
       experiences,
       skills,
       projects,
