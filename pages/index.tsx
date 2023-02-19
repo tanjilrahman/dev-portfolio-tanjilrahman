@@ -91,11 +91,11 @@ const Home = ({
 
       <Header socials={socials} />
 
-      <section id="hero" className=" snap-start">
+      <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
 
-      <section id="about" className=" snap-center">
+      <section id="about" className="snap-center">
         <About pageInfo={pageInfo} />
       </section>
 
@@ -126,7 +126,7 @@ const Home = ({
               <div className="h-7 w-7 md:h-8 md:w-8 relative">
                 <svg
                   className={`${
-                    inView ? "fill-secondary md:fill-primary" : "fill-primary "
+                    inView ? "fill-secondary 2xl:fill-primary" : "fill-primary "
                   } md:hover:fill-white transition-all duration-200 cursor-crosshair`}
                   version="1.2"
                   baseProfile="tiny"

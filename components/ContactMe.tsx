@@ -77,36 +77,42 @@ const ContactMe = ({ pageInfo }: Props) => {
       transition={{ duration: 1.5 }}
       className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-2xl">
+      <h3 className="absolute top-24 md:top-20 2xl:top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl">
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-6 md:space-y-10 ">
-        <h4 className="text-xl md:text-4xl font-semibold text-center px-4">
+      <div className="flex flex-col space-y-5 md:space-y-4 lg:space-y-6 2xl:space-y-10 ">
+        <h4 className="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-center px-4">
           I have got just what you need. <br className="md:hidden" />
           <span className="decoration-primary/50 underline">Lets Talk.</span>
         </h4>
-        <div className="space-y-2 md:space-y-10">
+        <div className="space-y-2 lg:space-y-4 2xl:space-y-6">
+          {/* <div className="flex items-center space-x-3 md:space-x-5 justify-center">
+            <PhoneIcon className="text-primary h-4 w-4 md:h-5 md:w-5 2xl:h-7 2xl:w-7 animate-pulse" />
+            <p className="text-base lg:text-xl 2xl:text-2xl">
+              {pageInfo.phoneNumber}
+            </p>
+          </div> */}
           <div className="flex items-center space-x-3 md:space-x-5 justify-center">
-            <PhoneIcon className="text-primary h-4 w-4 md:h-7 md:w-7 animate-pulse" />
-            <p className="text-base md:text-2xl">{pageInfo.phoneNumber}</p>
+            <EnvelopeIcon className="text-primary h-4 w-4 md:h-5 md:w-5 2xl:h-7 2xl:w-7 animate-pulse" />
+            <p className="text-base lg:text-xl 2xl:text-2xl">
+              {pageInfo.email}
+            </p>
           </div>
           <div className="flex items-center space-x-3 md:space-x-5 justify-center">
-            <EnvelopeIcon className="text-primary h-4 w-4 md:h-7 md:w-7 animate-pulse" />
-            <p className="text-base md:text-2xl">{pageInfo.email}</p>
-          </div>
-          <div className="flex items-center space-x-3 md:space-x-5 justify-center">
-            <MapPinIcon className="text-primary h-4 w-4 md:h-7 md:w-7 animate-pulse" />
-            <p className="text-base md:text-2xl">{pageInfo.address}</p>
+            <MapPinIcon className="text-primary h-4 w-4 md:h-5 md:w-5 2xl:h-7 2xl:w-7 animate-pulse" />
+            <p className="text-base lg:text-xl 2xl:text-2xl">
+              {pageInfo.address}
+            </p>
           </div>
         </div>
 
         <form
           ref={form as React.RefObject<HTMLFormElement>}
           onSubmit={sendEmail}
-          className="flex flex-col space-y-4 md:space-y-8 w-full px-6 md:px-16"
+          className="flex flex-col space-y-4 lg:space-y-6 2xl:space-y-8 w-full px-6 md:px-16"
         >
-          <div className="flex flex-col space-y-1 md:space-y-2 w-full text-sm md:text-base">
+          <div className="flex flex-col space-y-1 md:space-y-2 w-full text-sm lg:text-base">
             <div className="flex space-x-1 md:space-x-2 w-full">
               <input
                 required
@@ -144,7 +150,7 @@ const ContactMe = ({ pageInfo }: Props) => {
 
           <button
             type="submit"
-            className="bg-primary py-2 px-6 md:py-5 md:px-10 rounded-full text-secondary font-bold text-base md:text-lg hover:ring-2 hover:ring-primary hover:bg-secondary hover:text-primary transition-all duration-200 ease-in-out"
+            className="bg-primary py-2 px-6 lg:py-4 2xl:py-5 lg:px-8 2xl:px-10 rounded-full text-secondary font-bold lg:text-lg hover:ring-2 hover:ring-primary hover:bg-secondary hover:text-primary transition-all duration-200 ease-in-out"
           >
             Submit
           </button>

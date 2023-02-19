@@ -30,7 +30,7 @@ const Hero = ({ pageInfo }: Props) => {
         }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="relative rounded-full h-28 w-28 md:h-32 md:w-32 top-3 md:top-1 mx-auto object-cover"
+        className="relative rounded-full h-28 w-28 lg:h-32 lg:w-32 top-3 lg:top-1 mx-auto object-cover"
       >
         <Image
           className="rounded-full"
@@ -42,10 +42,10 @@ const Hero = ({ pageInfo }: Props) => {
       </motion.div>
 
       <div className="z-20">
-        <h2 className="text-xs md:text-sm uppercase text-gray-500 pb-3 tracking-[3px] md:tracking-[10px]">
+        <h2 className="text-xs lg:text-sm uppercase text-gray-500 pb-3 tracking-[3px] md:tracking-[10px]">
           {pageInfo.role}
         </h2>
-        <h1 className="text-2xl md:text-5xl lg:text-6xl font-semibold px-4 md:px-10">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl font-semibold px-4 md:px-10">
           <span className="md:mr-2">{text}</span>
           <Cursor cursorColor="#d6ff41" />
         </h1>

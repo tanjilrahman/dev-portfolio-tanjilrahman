@@ -25,7 +25,7 @@ const Skill = ({ directionLeft, skill }: Props) => {
         transition={{ duration: 0.5 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="rounded-full border border-primary/50 w-[65px] h-[65px] md:w-28 md:h-28 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out relative"
+        className="rounded-full border border-primary/50 w-[65px] h-[65px] md:w-16 md:h-16 lg:w-24 lg:h-24 2xl:w-32 2xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out relative"
       >
         <Image
           src={urlFor(skill.image).url()}
@@ -36,12 +36,12 @@ const Skill = ({ directionLeft, skill }: Props) => {
         />
       </motion.div>
 
-      <div className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-primary  h-[65px] w-[65px] md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-full z-0">
-        <div className="flex flex-col items-center justify-center h-full">
-          <p className="text-xl md:text-3xl font-bold text-black opacity-100 select-none">
+      <div className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-primary  h-[65px] w-[65px] md:w-16 md:h-16 lg:w-24 lg:h-24 2xl:w-32 2xl:h-32 rounded-full z-0">
+        <div className="flex flex-col items-center justify-center h-full text-center">
+          <p className="text-lg md:text-base lg:text-xl 2xl:text-3xl font-bold text-black opacity-100 select-none">
             {skill.progress}%
           </p>
-          <p className="text-xs md:text-sm font-medium text-black opacity-100 select-none">
+          <p className="text-xs 2xl:text-base font-medium text-black opacity-100 select-none">
             {skill.title}
           </p>
         </div>

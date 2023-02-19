@@ -16,7 +16,7 @@ const About = ({ pageInfo }: Props) => {
       transition={{ duration: 1.5 }}
       className="h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-7xl px-6 md:px-10 justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-2xl">
+      <h3 className="absolute top-24 md:top-20 2xl:top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl">
         About
       </h3>
 
@@ -32,7 +32,7 @@ const About = ({ pageInfo }: Props) => {
             }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="-mb-32 md:mb-0 flex-shrink-0 w-36 h-36 md:w-64 md:h-96 xl:w-[400px] xl:h-[500px] relative z-20"
+            className="-mb-32 md:mb-0 flex-shrink-0 w-36 h-36 md:w-52 md:h-72 lg:w-64 lg:h-96 2xl:w-[400px] 2xl:h-[500px] relative z-20"
           >
             <Image
               src={urlFor(pageInfo.profilePic).url()}
@@ -53,17 +53,17 @@ const About = ({ pageInfo }: Props) => {
             }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="absolute -top-2 -left-2 rounded-full md:rounded-none md:top-10 md:-left-10 z-10 w-40 h-40 md:w-64 md:h-96 xl:w-[400px] xl:h-[500px] bg-primary"
+            className="absolute -top-2 -left-2 rounded-full md:rounded-none md:top-6 md:-left-6 lg:top-8 lg:-left-8 2xl:top-10 2xl:-left-10 z-10 w-40 h-40 md:w-52 md:h-72 lg:w-64 lg:h-96 2xl:w-[400px] 2xl:h-[500px] bg-primary"
           />
         </div>
 
-        <div className="space-y-2 md:space-y-10 pl-0 md:pl-20">
-          <h4 className="text-2xl md:text-7xl font-extrabold uppercase">
+        <div className="space-y-2 md:space-y-4 lg:space-y-8 2xl:space-y-10 pl-0 md:pl-14 lg:pl-16 2xl:pl-20">
+          <h4 className="text-2xl md:text-5xl lg:text-6xl 2xl:text-7xl font-extrabold uppercase">
             Here is a{" "}
             <span className="underline decoration-primary/50">little</span>{" "}
             background
           </h4>
-          <p className="text-sm md:text-lg md:leading-loose">
+          <p className="text-sm lg:text-base 2xl:text-lg leading-normal  lg:leading-loose 2xl:leading-loose">
             {pageInfo.backgroundInformation}
           </p>
         </div>

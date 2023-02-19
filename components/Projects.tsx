@@ -13,15 +13,15 @@ type Props = {
 const Projects = ({ projects }: Props) => {
   return (
     <div className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0">
-      <h3 className="absolute top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-2xl">
+      <h3 className="absolute top-24 md:top-20 2xl:top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl">
         Projects
       </h3>
 
       <div className="relative w-full flex overflow-hidden snap-x snap-mandatory z-20  scrollbar-none scrollbar-track-gray-400/20 scrollbar-thumb-secondary/80">
         {projects.map((project, i) => (
           <div key={project._id} id={`CaseStudy${(i + 1).toString()}`}>
-            <div className="w-screen text-secondary flex-shrink-0 snap-center flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-center p-6 md:p-20 lg:p-44 h-screen">
-              <h3 className="xl:hidden uppercase absolute top-36 w-full text-center tracking-[3px] text-gray-500 text-xs md:text-sm">
+            <div className="w-screen text-secondary flex-shrink-0 snap-center flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-center p-6 lg:p-14 2xl:p-44 h-screen">
+              <h3 className="xl:hidden uppercase absolute top-32 md:top-28 lg:top-32 w-full text-center tracking-[3px] text-gray-500 text-xs lg:text-sm">
                 Case Study {i + 1} of {projects.length}
               </h3>
               <div className="text-center space-y-3">
@@ -33,7 +33,7 @@ const Projects = ({ projects }: Props) => {
                   transition={{ duration: 1.2 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
-                  className="relative w-[90vw] h-48 md:w-[400px] md:h-[250px] lg:w-[500px] lg:h-[300px] xl:w-[750px] xl:h-[450px] md:mt-4"
+                  className="relative w-[90vw] h-48 md:w-[450px] md:h-[250px] lg:w-[560px] lg:h-[300px] 2xl:w-[750px] 2xl:h-[450px] md:mt-12 2xl:mt-4"
                 >
                   <Image
                     src={urlFor(project.image).url()}
@@ -45,10 +45,10 @@ const Projects = ({ projects }: Props) => {
 
                 <div className="space-x-4 items-center flex justify-center">
                   <div className="inline-block group">
-                    <div className="flex items-center font-bold bg-secondary py-1 px-1 md:py-2 md:px-2 rounded-full mx-auto text-sm md:text-lg select-none">
+                    <div className="flex items-center font-bold bg-secondary py-1 px-1 lg:py-2 lg:px-2 rounded-full mx-auto text-sm md:text-xs lg:text-sm 2xl:text-base select-none">
                       <Link href={project.linkToBuild || "/"} passHref>
                         <a target="_blank" rel="noopener noreferrer">
-                          <div className="rounded-full py-2 px-4 md:px-6 md:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer select-none">
+                          <div className="rounded-full py-2 px-4 lg:px-6 lg:py-3 bg-primary text-secondary hover:text-primary hover:ring-1 md:hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer select-none">
                             Live Demo
                           </div>
                         </a>
@@ -62,7 +62,7 @@ const Projects = ({ projects }: Props) => {
                           passHref
                         >
                           <a target="_blank" rel="noopener noreferrer">
-                            <div className="rounded-full py-2 px-4 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer select-none">
+                            <div className="rounded-full py-2 px-4 lg:px-6 lg:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer select-none">
                               GitHub Repo
                             </div>
                           </a>
@@ -82,7 +82,7 @@ const Projects = ({ projects }: Props) => {
                               progress: undefined,
                             });
                           }}
-                          className="rounded-full py-2 px-3 md:px-6 md:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer select-none"
+                          className="rounded-full py-2 px-3 lg:px-6 lg:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer select-none"
                         >
                           GitHub Repo
                         </div>
@@ -90,16 +90,17 @@ const Projects = ({ projects }: Props) => {
                     </div>
                   </div>
                   <div className="hidden md:inline-block group">
-                    <div className="flex items-center font-bold bg-secondary py-2 px-2 rounded-full mx-auto md:text-lg">
+                    <div className="flex items-center font-bold bg-secondary py-1 px-1 lg:py-2 lg:px-2 rounded-full mx-auto text-sm md:text-xs lg:text-sm 2xl:text-base">
                       <Link href={`#CaseStudy${i + 2}`}>
                         <div
                           className={`${
                             projects.length == i + 1
                               ? "hidden"
-                              : "flex items-center rounded-full px-6 py-3 bg-primary text-secondary hover:text-primary hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer select-none"
+                              : "flex items-center rounded-full py-2 px-4 lg:px-6 lg:py-3 bg-primary text-secondary hover:text-primary hover:ring-2 hover:ring-primary group-hover:text-primary group-hover:bg-secondary transition-all duration-200 ease-in-out cursor-pointer select-none"
                           }`}
                         >
-                          Next <ArrowRightIcon className="w-6 h-6 ml-2" />
+                          Next{" "}
+                          <ArrowRightIcon className="w-4 h-4 lg:w-6 lg:h-6 ml-2" />
                         </div>
                       </Link>
                       <Link href={`#CaseStudy${i}`}>
@@ -107,10 +108,11 @@ const Projects = ({ projects }: Props) => {
                           className={`${
                             i == 0
                               ? "hidden"
-                              : "flex items-center rounded-full px-6 py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer select-none"
+                              : "flex items-center rounded-full py-2 px-4 lg:px-6 lg:py-3 text-white hover:bg-primary hover:text-secondary transition-all duration-200 ease-in-out cursor-pointer select-none"
                           }`}
                         >
-                          <ArrowLeftIcon className="w-6 h-6 mr-2" /> Previous
+                          <ArrowLeftIcon className="w-4 h-4 lg:w-6 lg:h-6 mr-2" />{" "}
+                          Previous
                         </div>
                       </Link>
                     </div>
@@ -123,13 +125,13 @@ const Projects = ({ projects }: Props) => {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 1.5 }}
                 viewport={{ once: false }}
-                className="space-y-3 md:space-y-4 px-0 md:px-4 xl:px-24 max-w-6xl"
+                className="space-y-3 md:space-y-4 px-0 md:px-6 2xl:px-24"
               >
-                <div className="flex space-x-2 justify-center">
+                <div className="flex space-x-2 justify-center md:mt-12 2xl:-mt-12">
                   {project.technologies.map((technology) => (
                     <div
                       key={technology._id}
-                      className="h-8 w-8 md:h-14 md:w-14 relative"
+                      className="h-8 w-8 md:w-10 md:h-10 2xl:h-14  2xl:w-14 relative"
                     >
                       <Image
                         layout="fill"
@@ -142,14 +144,14 @@ const Projects = ({ projects }: Props) => {
                   ))}
                 </div>
                 <div className="space-y-1 md:space-y-4 ">
-                  <h4 className="text-xl md:text-4xl font-bold text-center">
+                  <h4 className="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold text-center">
                     <span className="hidden xl:inline-block underline decoration-secondary/30">
                       Case Study {i + 1} of {projects.length}:
                     </span>{" "}
                     {project.title}
                   </h4>
 
-                  <p className="text-center text-sm md:font-medium md:text-xl mx-auto">
+                  <p className="text-center text-sm md:font-medium lg:text-base 2xl:text-xl mx-auto">
                     {project.summary}
                   </p>
                 </div>
@@ -164,7 +166,7 @@ const Projects = ({ projects }: Props) => {
         whileInView={{ y: 0, skewY: -12 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="w-full absolute top-[33%] md:top-[22%] bg-primary left-0 h-[700px] md:h-[600px]"
+        className="w-full absolute top-[33%] lg:top-[30%] 2xl:top-[22%] bg-primary left-0 h-[700px] 2xl:h-[600px]"
       />
     </div>
   );
