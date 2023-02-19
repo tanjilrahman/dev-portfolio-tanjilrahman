@@ -87,6 +87,10 @@ const Home = ({
     <div className="bg-secondary text-white h-screen snap-y snap-mandatory overflow-y-scroll z-0 overflow-x-hidden md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/80">
       <Head>
         <title>{`${pageInfo.name} - Portfolio`}</title>
+        <meta
+          name="description"
+          content="Hi, I’m Tanjil Rahman working as a software engineer for the last 4 years in web technologies 💻. I have extensive experience with technologies such as NextJS, ReactJS, TailwindCSS, Firebase, Strapi, Sanity, and NodeJS, as well as a strong foundation in the REST API."
+        ></meta>
       </Head>
 
       <Header socials={socials} />

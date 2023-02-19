@@ -58,11 +58,11 @@ const About = ({ pageInfo }: Props) => {
         </div>
 
         <div className="space-y-2 md:space-y-4 lg:space-y-8 2xl:space-y-10 pl-0 md:pl-14 lg:pl-16 2xl:pl-20">
-          <h4 className="text-2xl md:text-5xl lg:text-6xl 2xl:text-7xl font-extrabold uppercase">
+          <h1 className="text-2xl md:text-5xl lg:text-6xl 2xl:text-7xl font-extrabold uppercase">
             Here is a{" "}
             <span className="underline decoration-primary/50">little</span>{" "}
             background
-          </h4>
+          </h1>
           <p className="text-sm lg:text-base 2xl:text-lg leading-normal  lg:leading-loose 2xl:leading-loose">
             {pageInfo.backgroundInformation}
           </p>
