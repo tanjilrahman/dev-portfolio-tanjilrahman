@@ -13,17 +13,27 @@ type Props = {
 const Projects = ({ projects }: Props) => {
   return (
     <div className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0">
-      <h3 className="absolute top-24 md:top-20 2xl:top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl">
+      <motion.h3
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute top-24 md:top-8 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl"
+      >
         Projects
-      </h3>
+      </motion.h3>
 
       <div className="relative w-full flex overflow-hidden snap-x snap-mandatory z-20  scrollbar-none scrollbar-track-gray-400/20 scrollbar-thumb-secondary/80">
         {projects.map((project, i) => (
           <div key={project._id} id={`CaseStudy${(i + 1).toString()}`}>
             <div className="w-screen text-secondary flex-shrink-0 snap-center flex flex-col md:flex-row space-y-4 md:space-y-0 items-center justify-center p-6 lg:p-14 2xl:p-44 h-screen">
-              <h3 className="xl:hidden uppercase absolute top-32 md:top-28 lg:top-32 w-full text-center tracking-[3px] text-gray-500 text-xs lg:text-sm">
+              <motion.h3
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                className=" uppercase absolute top-32 md:top-16 lg:top-20 w-full text-center tracking-[3px] text-gray-500 text-xs lg:text-sm font-['Helvetica']"
+              >
                 Case Study {i + 1} of {projects.length}
-              </h3>
+              </motion.h3>
               <div className="text-center space-y-3">
                 <motion.div
                   initial={{
@@ -127,7 +137,7 @@ const Projects = ({ projects }: Props) => {
                 viewport={{ once: false }}
                 className="space-y-3 md:space-y-4 px-0 md:px-6 2xl:px-24"
               >
-                <div className="flex space-x-2 justify-center md:mt-12 2xl:-mt-12">
+                <div className="flex space-x-2 justify-center md:mt-12 2xl:-mt-24">
                   {project.technologies.map((technology) => (
                     <div
                       key={technology._id}
@@ -145,9 +155,9 @@ const Projects = ({ projects }: Props) => {
                 </div>
                 <div className="space-y-1 md:space-y-4 ">
                   <h4 className="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold text-center">
-                    <span className="hidden xl:inline-block underline decoration-secondary/30">
+                    {/* <span className="hidden xl:inline-block underline decoration-secondary/30">
                       Case Study {i + 1} of {projects.length}:
-                    </span>{" "}
+                    </span>{" "} */}
                     {project.title}
                   </h4>
 

@@ -13,12 +13,17 @@ const About = ({ pageInfo }: Props) => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
+      transition={{ duration: 2 }}
       className="h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-7xl px-6 md:px-10 justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 md:top-20 2xl:top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl">
+      <motion.h3
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute top-24 md:top-8 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl"
+      >
         About
-      </h3>
+      </motion.h3>
 
       <div className="flex flex-col md:flex-row items-center space-y-40 md:space-y-0">
         <div className="relative md:ml-10">

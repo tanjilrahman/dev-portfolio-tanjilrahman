@@ -127,7 +127,7 @@ const Home = ({
         <div className="relative">
           <div className="flex items-center justify-center">
             <Link href="#hero">
-              <div className="h-7 w-7 md:h-8 md:w-8 relative">
+              <div className="h-7 w-7 lg:h-8 lg:w-8 relative">
                 <svg
                   className={`${
                     inView ? "fill-secondary 2xl:fill-primary" : "fill-primary "

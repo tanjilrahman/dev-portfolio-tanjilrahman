@@ -9,16 +9,31 @@ type Props = {
 
 const Skills = ({ skills }: Props) => {
   return (
-    <motion.div className="h-screen flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 justify-center xl:space-y-0 mx-auto items-center">
-      <h3 className="absolute top-24 md:top-20 2xl:top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+      className="h-screen flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 justify-center xl:space-y-0 mx-auto items-center"
+    >
+      <motion.h3
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute top-24 md:top-8 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl"
+      >
         Skills
-      </h3>
+      </motion.h3>
 
-      <h3 className="absolute top-36 md:top-32 2xl:top-36 uppercase tracking-[3px] text-gray-500 text-xs lg:text-sm">
+      <motion.h3
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute top-36 md:top-16 lg:top-20 uppercase tracking-[3px] text-gray-500 text-xs lg:text-sm"
+      >
         Hover over a skill for current proficiency
-      </h3>
+      </motion.h3>
 
-      <div className="grid grid-cols-4 gap-4 md:gap-5 md:pt-10">
+      <div className="grid grid-cols-4 md:grid-cols-6 2xl:grid-cols-4 gap-4 md:gap-5">
         {skills.map((skill) => (
           <Skill key={skill._id} skill={skill} />
         ))}

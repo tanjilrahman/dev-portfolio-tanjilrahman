@@ -20,7 +20,7 @@ const CertificateCard = ({ certificate }: Props) => {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="relative w-full h-72 md:h-48 lg:h-64 2xl:h-96"
+        className="relative w-full h-72 md:h-32 lg:h-44 2xl:h-96"
       >
         <Image
           className="object-contain"
@@ -30,12 +30,12 @@ const CertificateCard = ({ certificate }: Props) => {
         />
       </motion.div>
       <div className="w-full">
-        <div className="md:space-y-2">
-          <div className=" md:space-y-2">
-            <h4 className="text-lg md:text-xl lg:text-2xl 2xl:text-4xl md:font-light">
+        <div className="2xl:space-y-2">
+          <div className="2xl:space-y-2">
+            <h4 className="text-lg lg:text-xl 2xl:text-4xl md:font-light">
               {certificate.title}
             </h4>
-            <p className="font-extrabold text-lg lg:text-xl 2xl:text-2xl">
+            <p className="font-extrabold text-lg md:text-base lg:text-lg 2xl:text-2xl">
               {certificate.organization}
             </p>
           </div>
@@ -66,13 +66,13 @@ const CertificateCard = ({ certificate }: Props) => {
           {certificate.credentialURL && (
             <Link href={certificate.credentialURL} passHref>
               <a target="_blank" rel="noopener noreferrer">
-                <p className="font-semibold bg-secondary py-2 px-4 my-2 rounded-full text-primary text-xs lg:text-sm">
+                <p className="font-semibold bg-secondary py-2 px-4 my-2 md:my-0 lg:my-2 rounded-full text-primary text-xs lg:text-sm">
                   Show credential
                 </p>
               </a>
             </Link>
           )}
-          <p className="uppercase py-2 md:py-4 text-secondary text-xs lg:text-base">
+          <p className="uppercase py-2 md:py-3 2xl:py-4 text-secondary text-xs lg:text-sm 2xl:text-base">
             - {new Date(certificate.issueDate).toDateString()}
           </p>
         </div>

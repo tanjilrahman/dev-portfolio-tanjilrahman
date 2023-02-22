@@ -74,14 +74,19 @@ const ContactMe = ({ pageInfo }: Props) => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
+      transition={{ duration: 2 }}
       className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 md:top-20 2xl:top-24 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl">
+      <motion.h3
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute top-24 md:top-8 -mr-4 uppercase tracking-[20px] text-gray-500 md:text-lg lg:text-2xl"
+      >
         Contact
-      </h3>
+      </motion.h3>
 
-      <div className="flex flex-col space-y-5 md:space-y-4 lg:space-y-6 2xl:space-y-10 ">
+      <div className="flex flex-col space-y-5 md:space-y-2 lg:space-y-4 2xl:space-y-10 ">
         <h4 className="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-center px-4">
           I have got just what you need. <br className="md:hidden" />
           <span className="decoration-primary/50 underline">Lets Talk.</span>
@@ -110,10 +115,10 @@ const ContactMe = ({ pageInfo }: Props) => {
         <form
           ref={form as React.RefObject<HTMLFormElement>}
           onSubmit={sendEmail}
-          className="flex flex-col space-y-4 lg:space-y-6 2xl:space-y-8 w-full px-6 md:px-16"
+          className="flex flex-col space-y-4 md:space-y-2 lg:space-y-3 2xl:space-y-8 w-full px-6 md:px-16"
         >
-          <div className="flex flex-col space-y-1 md:space-y-2 w-full text-sm lg:text-base">
-            <div className="flex space-x-1 md:space-x-2 w-full">
+          <div className="flex flex-col space-y-1 xl:space-y-2 w-full text-sm xl:text-base">
+            <div className="flex space-x-1 xl:space-x-2 w-full">
               <input
                 required
                 ref={name as React.RefObject<HTMLInputElement>}
@@ -150,7 +155,7 @@ const ContactMe = ({ pageInfo }: Props) => {
 
           <button
             type="submit"
-            className="bg-primary py-2 px-6 lg:py-4 2xl:py-5 lg:px-8 2xl:px-10 rounded-full text-secondary font-bold lg:text-lg hover:ring-2 hover:ring-primary hover:bg-secondary hover:text-primary transition-all duration-200 ease-in-out"
+            className="bg-primary py-2 px-6 lg:py-3 2xl:py-5 lg:px-8 2xl:px-10 rounded-full text-secondary font-bold md:text-sm lg:text-base xl:text-lg hover:ring-2 hover:ring-primary hover:bg-secondary hover:text-primary transition-all duration-200 ease-in-out"
           >
             Submit
           </button>
