@@ -30,7 +30,7 @@ const WorkExperience = ({ experiences }: Props) => {
         transition={{ duration: 1.5 }}
         className="absolute top-28 md:hidden lg:top-20 uppercase tracking-[3px] text-gray-500 text-xs lg:text-sm"
       >
-        Swipe to view more
+        Swipe left to view more
       </motion.h3>
 
       <div className="flex w-full space-x-3 overflow-x-scroll lg:space-x-4 2xl:space-x-5 snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-secondary/80 ">
